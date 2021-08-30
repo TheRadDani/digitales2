@@ -10,6 +10,6 @@ p4:
 p5:
 	sed 's/alarma_desc_conductual/alarma_desc_conductual_synth/' alarma_desc_conductualc.v
 p6:
-	emacs -batch autoinst.v(/*AUTOINST*/);
+	
 clean:
 	rm -r *.vcd 
