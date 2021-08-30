@@ -1,0 +1,89 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "c:\iverilog\lib\ivl\system.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "c:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "c:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "c:\iverilog\lib\ivl\va_math.vpi";
+S_0000000000991640 .scope module, "probador" "probador" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "sAlr_estr";
+    .port_info 1 /INPUT 1 "sAlr_cond";
+    .port_info 2 /OUTPUT 1 "sLuz";
+    .port_info 3 /OUTPUT 1 "sPrta";
+    .port_info 4 /OUTPUT 1 "sIgn";
+v0000000000999d10_0 .var "clk", 0 0;
+o0000000000896fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v000000000099a230_0 .net "sAlr_cond", 0 0, o0000000000896fd8;  0 drivers
+o0000000000897008 .functor BUFZ 1, C4<z>; HiZ drive
+v0000000000999ec0_0 .net "sAlr_estr", 0 0, o0000000000897008;  0 drivers
+v00000000009917d0_0 .var "sIgn", 0 0;
+v0000000000991870_0 .var "sLuz", 0 0;
+v0000000000991910_0 .var "sPrta", 0 0;
+E_00000000008955d0 .event posedge, v0000000000999d10_0;
+    .scope S_0000000000991640;
+T_0 ;
+    %vpi_call 2 14 "$dumpfile", "alarma.vcd" {0 0 0};
+    %vpi_call 2 15 "$dumpvars" {0 0 0};
+    %vpi_call 2 17 "$display", "\011\011\011clk,\011sAlr_estr,\011sAlr_cond,\011sLuz,\011sPrta,\011sIgn" {0 0 0};
+    %vpi_call 2 19 "$monitor", $time, "\011%b\011%b\011\011%b\011\011%b\011%b\011%b", v0000000000999d10_0, v0000000000999ec0_0, v000000000099a230_0, v0000000000991870_0, v0000000000991910_0, v00000000009917d0_0 {0 0 0};
+    %pushi/vec4 0, 0, 3;
+    %split/vec4 1;
+    %store/vec4 v00000000009917d0_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0000000000991910_0, 0, 1;
+    %store/vec4 v0000000000991870_0, 0, 1;
+    %pushi/vec4 8, 0, 32;
+T_0.0 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_0.1, 5;
+    %jmp/1 T_0.1, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %wait E_00000000008955d0;
+    %load/vec4 v0000000000991870_0;
+    %load/vec4 v0000000000991910_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v00000000009917d0_0;
+    %concat/vec4; draw_concat_vec4
+    %addi 1, 0, 3;
+    %split/vec4 1;
+    %assign/vec4 v00000000009917d0_0, 0;
+    %split/vec4 1;
+    %assign/vec4 v0000000000991910_0, 0;
+    %assign/vec4 v0000000000991870_0, 0;
+    %jmp T_0.0;
+T_0.1 ;
+    %pop/vec4 1;
+    %wait E_00000000008955d0;
+    %pushi/vec4 0, 0, 3;
+    %split/vec4 1;
+    %assign/vec4 v00000000009917d0_0, 0;
+    %split/vec4 1;
+    %assign/vec4 v0000000000991910_0, 0;
+    %assign/vec4 v0000000000991870_0, 0;
+    %vpi_call 2 29 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0000000000991640;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0000000000999d10_0, 0;
+    %end;
+    .thread T_1;
+    .scope S_0000000000991640;
+T_2 ;
+    %delay 2, 0;
+    %load/vec4 v0000000000999d10_0;
+    %inv;
+    %assign/vec4 v0000000000999d10_0, 0;
+    %jmp T_2;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "probador.v";
