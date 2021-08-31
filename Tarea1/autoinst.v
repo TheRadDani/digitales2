@@ -3,6 +3,6 @@
 module Newmodule;
     
     alarma_desc_conductual alarma_desc_conductual(/*AUTOINST*/);
-endmodule
 
+endmodule
 
