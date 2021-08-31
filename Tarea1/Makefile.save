@@ -10,5 +10,4 @@ p4:
 p5:
 	sed 's/alarma_desc_conductual/alarma_desc_conductual_synth/' alarma_desc_conductualc.v
 p6:
-	emacs -batch autoinst.v -f verilog-batch-auto
-clean: rm -r *.vcd
+	emacs -batch autoinst.v ; clean:	rm -r *.vcd 
