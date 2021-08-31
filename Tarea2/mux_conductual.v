@@ -1,10 +1,10 @@
-module (
-    input clk;
-    input reset_L;
-    input selector;//bit de seleccion
-    input [1:0] data_in0;//entradad de datos 0
-    input [1:0] data_in1;//entrada de datos 1
-    output reg [1:0] data_out;//salida como bus de dos bits
+module mux_conductual(
+    input clk,
+    input reset_L,
+    input selector,//bit de seleccion
+    input [1:0] data_in0,//entradad de datos 0
+    input [1:0] data_in1,//entrada de datos 1
+    output reg [1:0] data_out//salida como bus de dos bits
 );
 always@(posedge clk) //funcionamineto como flip-flop dincronizado por flanco positivo de reloj
             begin

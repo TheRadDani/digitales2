@@ -1,6 +1,6 @@
 module muxtest(
     input      [1:0] data_out,
-    output reg clk,/       estimilar salidas
+    output reg clk,//       estimilar salidas
     output reg reset_L,
     output reg selector,
     output reg [1:0] data_in0,//    estimular salidas
